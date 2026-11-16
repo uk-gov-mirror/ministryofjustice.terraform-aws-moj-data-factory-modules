@@ -131,7 +131,7 @@ resource "aws_dms_s3_endpoint" "s3_target_independent_full_load" {
   endpoint_id                      = "${var.db}-target-independent"
   endpoint_type                    = "target"
   bucket_name                      = aws_s3_bucket.landing.bucket
-  service_access_role_arn          = aws_iam_role.dms.arn
+  service_access_role_arn          = aws_iam_role.dms.arn[0]
   add_column_name                  = var.s3_target_config.add_column_name
   canned_acl_for_objects           = "bucket-owner-full-control"
   cdc_max_batch_interval           = var.s3_target_config.max_batch_interval
